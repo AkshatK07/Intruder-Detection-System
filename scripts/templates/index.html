@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intruder Logs</title>
+</head>
+<body>
+    <h1>Intruder Detection Logs</h1>
+
+    <h2>Intruder Images</h2>
+    <ul>
+        {% for image in images %}
+        <li>
+            <a href="{{ url_for('view_log', log_type='images', filename=image) }}">{{ image }}</a>
+            | <a href="{{ url_for('download_log', log_type='images', filename=image) }}">Download</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Screen Recordings</h2>
+    <ul>
+        {% for recording in recordings %}
+        <li>
+            <a href="{{ url_for('view_log', log_type='recordings', filename=recording) }}">{{ recording }}</a>
+            | <a href="{{ url_for('download_log', log_type='recordings', filename=recording) }}">Download</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
